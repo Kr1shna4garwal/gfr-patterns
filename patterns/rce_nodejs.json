@@ -1,0 +1,18 @@
+{
+  "author": "kr1shna4garwal",
+  "tags": ["command-injection", "nodejs", "rce", "security"],
+  "version": "1.0.0",
+  "description": "potential RCE vectors in Node.js applications using dangerous functions and patterns.",
+  "file_types": ["js", "jsx", "ts", "tsx", "mjs", "cjs"],
+  "ignore_case": true,
+  "multiline": true,
+  "patterns": [
+    "\\bchild_process\\.(exec|execSync|spawn|spawnSync|fork)\\b",
+    "\\beval\\s*\\(",
+    "\\brequire\\(['\"]child_process['\"]\\)\\.exec\\(",
+    "\\bchild_process\\.exec\\(.*\\b(process\\.env|req\\.body|req\\.query|args)\\b.*\\)",
+    "exec\\s*\\(.*\\+.*\\)",
+    "exec\\s*\\(`.*\\$\\{.*\\}.*`\\)",
+    "child_process\\.exec\\s*\\(.*\\)"
+  ]
+}
