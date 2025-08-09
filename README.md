@@ -14,7 +14,7 @@
 
 This repository contains the **default pattern collection** for [gfr](https://github.com/Kr1shna4garwal/gfr), a blazingly-fast Rust-based pattern search tool.
 
----
+
 
 ## Repository Structure
 
@@ -31,7 +31,7 @@ gfr-patterns/
     └── pattern.schema.json
 ```
 
----
+
 
 ## Usage
 
@@ -65,7 +65,7 @@ curl -O https://raw.githubusercontent.com/Kr1shna4garwal/gfr-patterns/main/patte
 mv rce_go.json ~/Library/Application\ Support/gfr/rce_go.json
 ```
 
----
+
 
 ## Pattern Structure
 
@@ -100,7 +100,7 @@ Each pattern is a JSON file following this structure:
 - **`ignore_case`**: Enable case-insensitive matching (default: false)
 - **`multiline`**: Allow `.` to match newlines (default: false)
 
----
+
 
 ## Contributing
 
@@ -143,7 +143,7 @@ I welcome contributions to expand the pattern collection! Here's how you can hel
 }
 ```
 
----
+
 
 ## Index File Format
 
@@ -164,27 +164,27 @@ The `index.json` file maintains the registry of all available patterns:
 }
 ```
 
----
+
 
 ## License
 
 This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
----
+
 
 ## Related Projects
 
 - **[gfr](https://github.com/Kr1shna4garwal/gfr)** - The main gfr tool
 - **[gf](https://github.com/tomnomnom/gf)** - The original inspiration for gfr
 
----
+
 
 ## Support
 
 - **Issues**: [GitHub Issues](https://github.com/Kr1shna4garwal/gfr-patterns/issues)
 - **Contact**: [kr1shna4garwal.com/contact](https://kr1shna4garwal.com/contact)
 
----
+
 
 <div align="center">
   <sub>Powered by Caffeine and Creativity</sub>
