@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Kr1shna4garwal/ghr-patterns/refs/heads/main/schemas/pattern.schema.json",
+  "title": "gfr Pattern Schema",
+  "description": "JSON schema for gfr pattern files",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference"
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version of the pattern file",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[\\w\\.-]+)?(?:\\+[\\w\\.-]+)?$",
+      "default": "1.0.0"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author of the pattern",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "description": "A brief explanation of what the pattern finds",
+      "minLength": 1
+    },
+    "tags": {
+      "type": "array",
+      "description": "A list of tags for categorization",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "pattern": {
+      "type": "string",
+      "description": "A single regular expression pattern. Use this OR 'patterns', not both",
+      "minLength": 1
+    },
+    "patterns": {
+      "type": "array",
+      "description": "A list of regular expressions that will be combined with OR logic. Use this OR 'pattern', not both",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "file_types": {
+      "type": "array",
+      "description": "A list of file extensions to specifically include in the search (without dots)",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9]+$",
+        "description": "File extension without the dot (e.g., 'js', 'py', 'go')"
+      },
+      "uniqueItems": true,
+      "minItems": 1,
+      "examples": [["js", "jsx", "ts", "tsx"], ["py", "pyx"], ["go"]]
+    },
+    "ignore_case": {
+      "type": "boolean",
+      "description": "If true, the search will be case-insensitive",
+      "default": false
+    },
+    "multiline": {
+      "type": "boolean",
+      "description": "If true, enables multi-line searching (dot matches newline)",
+      "default": false
+    }
+  },
+  "required": ["version"],
+  "oneOf": [
+    {
+      "required": ["pattern"],
+      "not": {
+        "required": ["patterns"]
+      }
+    },
+    {
+      "required": ["patterns"],
+      "not": {
+        "required": ["pattern"]
+      }
+    }
+  ],
+  "examples": [
+    {
+      "version": "1.0.0",
+      "author": "kr1shna4garwal",
+      "description": "Detects XSS vulnerabilities in JavaScript",
+      "tags": ["security", "xss", "javascript"],
+      "pattern": "innerHTML\\s*=\\s*.*\\+",
+      "file_types": ["js", "jsx", "ts", "tsx"],
+      "ignore_case": true,
+      "multiline": false
+    },
+    {
+      "version": "1.2.0",
+      "author": "security-team",
+      "description": "Detects SQL injection patterns",
+      "tags": ["security", "sql-injection", "database"],
+      "patterns": [
+        "SELECT\\s+.*\\s+FROM\\s+.*\\+",
+        "INSERT\\s+INTO\\s+.*\\+",
+        "UPDATE\\s+.*\\s+SET\\s+.*\\+"
+      ],
+      "file_types": ["py", "php", "js"],
+      "ignore_case": true,
+      "multiline": true
+    }
+  ]
+}
