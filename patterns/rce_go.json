@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/Kr1shna4garwal/ghr-patterns/refs/heads/main/schemas/pattern.schema.json",
+  "$schema": "https://raw.githubusercontent.com/Kr1shna4garwal/gfr-patterns/refs/heads/main/schemas/pattern.schema.json",
   "author": "kr1shna4garwal",
   "tags": ["command-injection", "go", "rce", "security"],
   "version": "1.2.0",
