@@ -1,0 +1,19 @@
+{
+  "author": "kr1shna4garwal",
+"tags": ["command-injection", "go", "rce", "security"],
+  "version": "1.0.0",
+  "description": "potential RCE vectors in Go applications using dangerous functions and patterns.",
+  "file_types": ["go"],
+  "ignore_case": true,
+  "multiline": true,
+  "patterns": [
+    "\\bexec\\.Command\\s*\\(",
+    "\\bexec\\.CommandContext\\s*\\(",
+    "exec\\.Command\\s*\\(.*(os\\.Args|os\\.Getenv|r\\.FormValue|r\\.URL\\.Query|req\\.|c\\.Query|c\\.Param).*\\)",
+    "\\bsyscall\\.Exec\\s*\\(",
+    "fmt\\.Sprintf\\s*\\(.*exec\\.Command.*\\)",
+    "exec\\.Command\\s*\\(.*(\"sh\"|\"bash\"|\"cmd\"),.*(\"-c\"|\"run\"|\"\\\\c\").*\\)",
+    "exec\\.Command\\s*\\(.*\\+.*\\)",
+    "exec\\.Command\\s*\\(fmt\\.Sprintf.*\\)"
+  ]
+}
