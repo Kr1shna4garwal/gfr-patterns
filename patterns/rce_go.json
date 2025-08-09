@@ -1,7 +1,7 @@
 {
   "author": "kr1shna4garwal",
 "tags": ["command-injection", "go", "rce", "security"],
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "potential RCE vectors in Go applications using dangerous functions and patterns.",
   "file_types": ["go"],
   "ignore_case": true,
