@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Kr1shna4garwal/ghr-patterns/refs/heads/main/schemas/index.schema.json",
+  "title": "gfr Pattern Index Schema",
+  "description": "JSON schema for gfr pattern index files",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference"
+    },
+    "patterns": {
+      "type": "array",
+      "description": "List of available patterns with their metadata",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name/identifier of the pattern",
+            "pattern": "^[a-zA-Z0-9_-]+$",
+            "minLength": 1,
+            "maxLength": 50
+          },
+          "version": {
+            "type": "string",
+            "description": "Semantic version of the pattern",
+            "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[\\w\\.-]+)?(?:\\+[\\w\\.-]+)?$"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL to the pattern JSON file",
+            "format": "uri",
+            "pattern": "^https?://"
+          }
+        },
+        "required": ["name", "version", "url"]
+      },
+      "minItems": 1
+    }
+  },
+  "required": ["patterns"],
+  "examples": [
+    {
+      "patterns": [
+        {
+          "name": "xss",
+          "version": "1.0.0",
+          "url": "https://raw.githubusercontent.com/Kr1shna4garwal/ghr-patterns/main/patterns/xss.json"
+        },
+        {
+          "name": "sql_injection", 
+          "version": "2.1.0",
+          "url": "https://raw.githubusercontent.com/Kr1shna4garwal/ghr-patterns/main/patterns/sql_injection.json"
+        },
+        {
+          "name": "nodejs_rce",
+          "version": "1.0.0", 
+          "url": "https://raw.githubusercontent.com/Kr1shna4garwal/ghr-patterns/main/patterns/nodejs_rce.json"
+        }
+      ]
+    }
+  ]
+}
