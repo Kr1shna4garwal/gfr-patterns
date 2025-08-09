@@ -1,2 +1,2 @@
-# ghr-patterns
-ghr default patterns index
+# gfr-patterns
+gfr default patterns index
