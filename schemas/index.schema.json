@@ -4,6 +4,7 @@
   "title": "gfr Pattern Index Schema",
   "description": "JSON schema for gfr pattern index files",
   "type": "object",
+  "required": ["patterns"],
   "additionalProperties": false,
   "properties": {
     "$schema": {
@@ -12,12 +13,14 @@
     },
     "name": {
       "type": "string",
-      "description": "Name identifier for this pattern collection"
+      "description": "Name identifier for this pattern collection",
+      "default": "default-patterns"
     },
     "version": {
       "type": "string",
-      "description": "Version of this pattern collection",
-      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[\\w\\.-]+)?(?:\\+[\\w\\.-]+)?$"
+      "description": "Version of this pattern collection using semantic versioning",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[\\w\\.-]+)?(?:\\+[\\w\\.-]+)?$",
+      "default": "1.0.0"
     },
     "patterns": {
       "type": "array",
@@ -49,9 +52,10 @@
       "minItems": 1
     }
   },
-  "required": ["name", "version", "patterns"],
   "examples": [
     {
+      "name": "default-patterns",
+      "version": "1.0.0",
       "patterns": [
         {
           "name": "xss",
