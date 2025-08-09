@@ -6,12 +6,12 @@
     {
       "name": "rce_nodejs",
       "version": "1.0.0",
-      "url": "https://raw.githubusercontent.com/Kr1shna4garwal/ghr-patterns/refs/heads/main/patterns/rce_nodejs.json"
+      "url": "https://raw.githubusercontent.com/Kr1shna4garwal/gfr-patterns/refs/heads/main/patterns/rce_nodejs.json"
     },
     {
       "name": "rce_go",
       "version": "1.0.0",
-      "url": "https://raw.githubusercontent.com/Kr1shna4garwal/ghr-patterns/refs/heads/main/patterns/rce_go.json"
+      "url": "https://raw.githubusercontent.com/Kr1shna4garwal/gfr-patterns/refs/heads/main/patterns/rce_go.json"
     }
   ]
 }
