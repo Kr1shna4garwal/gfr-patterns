@@ -10,6 +10,15 @@
       "type": "string",
       "description": "JSON Schema reference"
     },
+    "name": {
+      "type": "string",
+      "description": "Name identifier for this pattern collection"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of this pattern collection",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[\\w\\.-]+)?(?:\\+[\\w\\.-]+)?$"
+    },
     "patterns": {
       "type": "array",
       "description": "List of available patterns with their metadata",
@@ -32,7 +41,6 @@
           "url": {
             "type": "string",
             "description": "URL to the pattern JSON file",
-            "format": "uri",
             "pattern": "^https?://"
           }
         },
@@ -41,7 +49,7 @@
       "minItems": 1
     }
   },
-  "required": ["patterns"],
+  "required": ["name", "version", "patterns"],
   "examples": [
     {
       "patterns": [
